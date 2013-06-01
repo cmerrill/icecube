@@ -2748,10 +2748,10 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <part name="GND1" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="R4" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="16k"/>
-<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="0.1uF"/>
+<part name="C2" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value=".1uF"/>
 <part name="GND2" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 <part name="R1" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="10K"/>
-<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0603-CAP" value="1uF"/>
+<part name="C1" library="SparkFun-Passives" deviceset="CAP" device="0805" value="1uF"/>
 <part name="R2" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="100k"/>
 <part name="R3" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="100k"/>
 <part name="GND3" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
@@ -2771,7 +2771,7 @@ This is the reduced ISP connector for AVR programming. Common on Arduino. This f
 <part name="LED" library="SparkFun-LED" deviceset="LED-TRICOLOR" device="PLCC4"/>
 <part name="SUPPLY6" library="SparkFun-Aesthetics" deviceset="VCC" device=""/>
 <part name="R8" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="20"/>
-<part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="75"/>
+<part name="R6" library="SparkFun-Passives" deviceset="RESISTOR" device="0805-RES" value="75"/>
 <part name="R7" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="20"/>
 <part name="EXT1" library="SparkFun-Connectors" deviceset="M01" device="PTH"/>
 <part name="R10" library="SparkFun-Passives" deviceset="RESISTOR" device="0402-RES" value="10K"/>
