@@ -12,8 +12,9 @@
 
 void sleep_init();
 void sleep_until_next_step(void);
+void sleep_deep(void);
 
-bool sleep_deep_if_no_sound(uint16_t level);
+bool sleep_from_sound_level(uint16_t level);
 
 
 #endif /* SLEEP_H_ */

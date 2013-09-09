@@ -73,7 +73,11 @@ int main(void){
 				rgb_led_start_pulse(RED);
 			}
 
-			if(!(sleep_deep_if_no_sound(sample))) {
+			if(sleep_from_sound_level(sample)) {
+				rgb_led_set(0,0,0);
+				sleep_deep();
+			}
+			else {
 				sleep_until_next_step();
 			}
 		}

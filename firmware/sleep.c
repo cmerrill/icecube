@@ -21,8 +21,8 @@ static uint16_t samples_below = 800;
  */
 void sleep_init(void) {
 	// Enable watchdog timer interrupt
-	// Period is ~approx 1s
-	WDTCR = _BV(WDIE) + _BV(WDP2) + _BV(WDP1);
+	// Period is ~approx 2s
+	WDTCR = _BV(WDIE) + _BV(WDP2) + _BV(WDP1) + _BV(WDP0);
 }
 
 /*
@@ -46,21 +46,31 @@ void sleep_until_next_step(void) {
 /*
  * Go into a deep sleep mode
  */
-static void sleep_deep(void) {
+void sleep_deep(void) {
+	// Disable the ADC to save power.
+	ADCSRA &= ~_BV(ADEN);
 
+	// Set sleep mode to power down mode
+	set_sleep_mode(SLEEP_MODE_PWR_DOWN);
+	sleep_enable();
+
+	// Sleep!
+	sleep_cpu();
+
+	// Disable processor sleep.
+	sleep_disable();
 }
 
 /**
  * If we haven't gotten any signal, go in to a deep sleep mode.
  * This will disable the timer and the ADC.
  */
-bool sleep_deep_if_no_sound(uint16_t level) {
+bool sleep_from_sound_level(uint16_t level) {
 	if (samples_below == 0) {
 		samples_below = 4;
-		sleep_deep();
 		return true;
 	}
-	if (level < min_awake_level) {
+	else if (level < min_awake_level) {
 		samples_below -= 1;
 	}
 	else {
