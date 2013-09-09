@@ -26,12 +26,9 @@ void sleep_init(void) {
 }
 
 /*
- * Sleep until the next timer tick or the next ADC signal.
+ * Sleep until next interrupt w/o disabling ADC
  */
-void sleep_until_next_step(void) {
-	// Disable the ADC to save power.
-	ADCSRA &= ~_BV(ADEN);
-
+void sleep_without_disable_adc(void) {
 	// Set sleep mode to idle mode
 	set_sleep_mode(SLEEP_MODE_IDLE);
 	sleep_enable();
@@ -42,6 +39,17 @@ void sleep_until_next_step(void) {
 	// Disable processor sleep.
 	sleep_disable();
 }
+
+/*
+ * Sleep until the next interrupt.
+ */
+void sleep_until_next_step(void) {
+	// Disable the ADC to save power.
+	ADCSRA &= ~_BV(ADEN);
+
+	sleep_without_disable_adc();
+}
+
 
 /*
  * Go into a deep sleep mode

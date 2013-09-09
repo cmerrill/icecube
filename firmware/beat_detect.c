@@ -15,7 +15,8 @@ void beat_detect_init(void) {
 }
 
 void beat_detect_start_conversion(void) {
-	ADCSRA |= _BV(ADEN) + _BV(ADSC);
+	ADCSRA |= _BV(ADEN);
+	ADCSRA |= _BV(ADSC);
 }
 
 uint16_t beat_detect_get_last_conversion(void) {

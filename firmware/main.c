@@ -82,8 +82,9 @@ int main(void){
 			}
 		}
 		else {
-			sleep_until_next_step();
+			sleep_without_disable_adc();
 		}
+
 	}
 	return 0;
 }
@@ -106,9 +107,10 @@ ISR(TIMER0_OVF_vect) {
 		sample_ADC = true;
 		step_LED = true;
 	}
-
-	// Decrement loop counter
-	loop_counter--;
+	else {
+		// Decrement loop counter
+		loop_counter--;
+	}
 }
 
 /*

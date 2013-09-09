@@ -11,6 +11,7 @@
 #include <stdbool.h>
 
 void sleep_init();
+void sleep_without_disable_adc(void);
 void sleep_until_next_step(void);
 void sleep_deep(void);
 
