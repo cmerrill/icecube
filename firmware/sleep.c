@@ -13,7 +13,7 @@
  * Global constants & variables
  */
 static const uint16_t min_awake_level = 100; // 300 mV
-static const uint16_t sample_below_reload_value;
+static const uint16_t sample_below_reload_value = 800; // Approx 10 seconds
 static uint16_t samples_below = 800;
 
 /*
