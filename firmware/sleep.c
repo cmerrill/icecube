@@ -22,7 +22,8 @@ static uint16_t samples_below = 800;
 void sleep_init(void) {
 	// Enable watchdog timer interrupt
 	// Period is ~approx 2s
-	WDTCR = _BV(WDIE) + _BV(WDP2) + _BV(WDP1) + _BV(WDP0);
+	WDTCR = _BV(WDIE) + _BV(WDCE);
+	WDTCR |= _BV(WDP2) + _BV(WDP1) + _BV(WDP0);
 }
 
 /*
